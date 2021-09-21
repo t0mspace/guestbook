@@ -39,21 +39,21 @@ class Conference
     /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="conference", orphanRemoval=true)
      */
-    private ArrayCollection $comments;
+    private Collection $comments;
 
     public function __construct()
     {
         $this->comments = new ArrayCollection();
     }
-    
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
     public function getCity(): ?string
@@ -92,9 +92,6 @@ class Conference
         return $this;
     }
 
-    /**
-     * @return Collection|Comment[]
-     */
     public function getComments(): Collection
     {
         return $this->comments;
@@ -120,5 +117,10 @@ class Conference
         }
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->city . ' ' . $this->year;
     }
 }
