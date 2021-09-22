@@ -2,14 +2,15 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Conference;
+use App\Entity\Comment;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ConferenceCrudController extends AbstractCrudController
+class CommentController extends AbstractController
 {
     public static function getEntityFqcn(): string
     {
-        return Conference::class;
+        return Comment::class;
     }
 
     /*
